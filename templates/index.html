@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MER Extraction v7</title><link rel="stylesheet" href="/static/app.css"></head><body>
+<header><div><h1>MER Extraction <span>v7</span></h1><small>Automated Management Expense · Trading Expense · Portfolio Turnover</small></div><div class="mark">LOCAL · PRIVATE</div></header>
+<div class="toolbar"><label class="pick">Choose PDF <input id="pdf" type="file" accept="application/pdf,.pdf"></label><span id="filename">No PDF selected</span><button id="extract">Extract ratios <span>→</span></button><span id="status" role="status">Ready</span></div>
+<div class="progress" id="progress"><div id="progressBar"></div></div>
+<main><section class="pane">
+    
+<div class="sectiontitle">
+  <h2>Extraction results</h2>
+
+    <div class="export-actions">
+        <a id="download" class="hidden" href="#">
+            Export Data ↓
+        </a>
+
+        <a id="exportAll" href="/api/exports/all.xlsx">
+            Export All Data ↓
+        </a>
+
+        <a id="exportListed" href="/api/exports/listed.xlsx">
+            Export All Listed ↓
+        </a>
+</div>
+
+</div>
+
+<div id="overview" class="empty"><div class="emptyIcon">▤</div>Upload a fund report and click <b>Extract ratios</b>.<br><small>MER, TER and portfolio turnover are detected automatically.</small></div>
+<div id="result"></div><div id="details"></div>
+
+
+<div id="actions" class="hidden">
+  <button id="verify" class="secondary">
+    Mark results as verified
+  </button>
+
+  <button id="rescan" class="ghost" type="button">
+    Re-scan PDF
+  </button>
+
+  <small>
+    Verification is optional. Never automatically trains the OCR model.
+  </small>
+</div>
+
+<div id="rescanPanel" class="hidden" role="region"
+     aria-label="Re-scan comparison">
+
+  <div class="sectiontitle">
+    <h2>Review Re-scan Results</h2>
+  </div>
+
+  <p class="muted" id="rescanMessage">
+    Compare the current results with the proposed extraction.
+  </p>
+
+  <div id="rescanComparison" class="scroller"></div>
+
+  <div class="rescan-controls">
+    <button id="rescanCancel" class="ghost" type="button">
+      No, Cancel
+    </button>
+
+    <button id="rescanConfirm" class="secondary" type="button">
+      Yes, Replace Results
+    </button>
+  </div>
+</div>
+
+
+<div class="history">
+
+  <div class="sectiontitle">
+    <h2>Recent documents</h2>
+    <div class="history-controls">
+      <button id="reloadHistory" class="ghost">Refresh</button>
+      <button id="clearList" class="ghost">Clear List</button>
+    </div>
+  </div>
+
+  <div id="history"></div>
+
+  <div class="history-archive">
+    <button id="viewAllHistory" class="ghost">
+      View All Saved History
+    </button>
+
+    <div id="savedHistory" class="hidden">
+      <div class="sectiontitle">
+        <h2>Saved History</h2>
+        <button id="closeSavedHistory" class="ghost">
+          Close
+        </button>
+      </div>
+
+      <div id="savedHistoryList"></div>
+    </div>
+  </div>
+
+</div>
+
+</section><section class="pane right"><div class="sectiontitle"><h2>PDF viewer</h2><span class="muted">Source document</span></div><iframe id="viewer" title="PDF document preview"></iframe></section></main>
+<script src="/static/app.js"></script></body></html>

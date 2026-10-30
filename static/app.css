@@ -1,0 +1,126 @@
+:root{font-family:Segoe UI,Arial,sans-serif;color:#1a3046;background:#edf2f7}*{box-sizing:border-box}body{margin:0}header{background:#133e67;color:#fff;padding:17px 24px;display:flex;justify-content:space-between;align-items:center}h1{font-size:23px;margin:0 0 4px}h1 span{color:#85c5ff}header small{color:#c5ddf2}.mark{font-size:11px;letter-spacing:1.5px;border:1px solid #7693b0;border-radius:20px;padding:8px 12px}.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff;padding:13px 22px;border-bottom:1px solid #d3dfe8}.pick{cursor:pointer;border:1px solid #9db7ce;border-radius:7px;padding:9px 15px;color:#164971;font-weight:600;background:#f4f9fd}.pick input{display:none}#filename{font-size:13px;color:#5d6d7a;max-width:260px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}button{background:#0a5b96;color:white;border:0;padding:11px 16px;border-radius:7px;cursor:pointer;font-weight:600}button:disabled{opacity:.5;cursor:wait}.secondary{background:#23774d}.ghost{background:#e7eff6;color:#25506f;padding:7px 11px}#status{font-size:13px;color:#34576b;font-weight:600;margin-left:auto}.progress{height:4px;background:#dbe4ed}.progress>div{height:100%;width:0;background:#189b84;transition:width .25s}main{display:grid;grid-template-columns:50% 50%;height:calc(100vh - 153px);min-height:600px;gap:0}.pane{background:white;overflow:auto;padding:20px 22px;border-right:1px solid #dbe5ed}.pane.right{background:#f8fafc}.sectiontitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.sectiontitle h2{font-size:17px;margin:0}a{color:#0a5b96;text-decoration:none;font-size:13px;font-weight:600}.empty{color:#63798b;text-align:center;border:1px dashed #b9cbda;background:#f8fbfd;padding:38px 12px;border-radius:10px;line-height:1.9}.emptyIcon{font-size:35px;color:#80a4bf}.empty small{font-size:12px}.hidden{display:none!important}.stats{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:15px}.stat{flex:1;min-width:100px;padding:12px 14px;background:#eef7f4;border:1px solid #cbe6d9;border-radius:8px}.stat b{display:block;font-size:19px}.stat small{color:#5e7068}.notice{padding:11px 13px;background:#fff8e6;border:1px solid #ebd7a2;border-radius:6px;font-size:13px;margin-bottom:12px}table{border-collapse:collapse;width:100%;font-size:13px}th{background:#ebf2f8;color:#274966}th,td{padding:9px 8px;border:1px solid #dae4ed;text-align:left;vertical-align:top}tr:nth-child(even){background:#f9fbfd}td.number{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}td.small{font-size:11px;color:#577080}.scroller{overflow:auto}#details{margin-top:14px}details{background:#f8fbfd;border:1px solid #dce5ed;padding:12px;border-radius:7px}summary{cursor:pointer;font-weight:600}#actions{display:flex;align-items:center;gap:12px;margin:15px 0;flex-wrap:wrap}#actions small{color:#687a88}.history{margin-top:28px;border-top:1px solid #e1e8ee;padding-top:17px}.history button.item{display:block;width:100%;text-align:left;margin:6px 0;color:#274b68;background:#f3f7fa;border:1px solid #dfebf2;padding:10px}.history .meta{color:#718597;font-size:11px;display:block;margin-top:3px}#viewer{width:100%;height:calc(100% - 36px);border:1px solid #cedce7;background:white;min-height:550px}.muted{color:#6f8597;font-size:12px}@media(max-width:850px){main{display:block;height:auto}.pane{min-height:430px}#viewer{height:650px}.mark{display:none}} 
+
+.inline-ratio-input {
+  width: 85px;
+  max-width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 7px;
+  background: var(--surface, transparent);
+  color: inherit;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  box-sizing: border-box;
+}
+
+.inline-ratio-input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+
+td .ghost + .ghost {
+  margin-left: 5px;
+}
+
+
+/* Three CSV export controls */
+.export-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.export-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.export-actions a.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .export-actions {
+    justify-content: flex-start;
+  }
+
+  .export-actions a {
+    flex: 1 1 auto;
+  }
+}
+
+
+/* Re-scan review */
+#rescanPanel {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: 10px;
+}
+
+#rescanPanel.hidden {
+  display: none;
+}
+
+#rescanComparison {
+  margin: 12px 0;
+}
+
+#rescanComparison table {
+  width: 100%;
+}
+
+.rescan-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+#rescan:disabled,
+.rescan-controls button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .rescan-controls button {
+    flex: 1 1 auto;
+  }
+}
+
+
+/* Detected fund name — informational, not a warning */
+.fund-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 12px;
+  padding: 11px 13px;
+  border: 1px solid #d5e3ee;
+  border-radius: 6px;
+  background: #f1f6fa;
+  color: #173b5c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fund-info strong {
+  font-weight: 700;
+}
+
+.fund-info span {
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,8 @@
+"""National Bank Investments: Investor/Advisor and Series F/O/R blocks."""
+from .base import FMCProfile
+PROFILE=FMCProfile(
+    key='nbi',label='National Bank Investments',
+    signature=(r'National Bank Investments',r'www\.nbinvestments\.ca',r'\bNBI Sustainable\b'),
+    title_re=r'(?m)^\s*(NBI Sustainable (?!Portfolio\s*$)[^\n]{3,100}Portfolio)\s*$',
+    class_style='nbi',
+)
